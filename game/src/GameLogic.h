@@ -1,6 +1,7 @@
 #pragma once
-#include "raylib.h"
 #include <string>
+#include "raylib.h"
+#include "Gameplay.h"
 
 enum GameState
 {
@@ -35,12 +36,12 @@ public:
 
 private:
 	GameState State = MainMenu;
+	Gameplay TheGamePlay;
 
 	void CheckEndOfLevelWave();
 	void NewWaveStart();
 	void PlayerWasHit();
 	void ResetAfterExplode();
-	void PlayerHit();
 	void CheckEndOfWave();
 	void NewGame();
 };

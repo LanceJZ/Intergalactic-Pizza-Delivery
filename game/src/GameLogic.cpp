@@ -14,6 +14,8 @@ bool GameLogic::Initialize()
 {
 	SetWindowTitle("Intergalactic Pizza Delivery Pre-Alpha");
 
+	TheGamePlay.Initialize();
+
 	return false;
 }
 
@@ -76,7 +78,7 @@ void GameLogic::Input()
 {
 	if (State == InPlay || State == WaveStart)
 	{
-
+		TheGamePlay.Input();
 	}
 
 	if (IsKeyPressed(KEY_P))
@@ -128,7 +130,7 @@ void GameLogic::Update(float deltaTime)
 {
 	if (State == InPlay)
 	{
-
+		TheGamePlay.Update(deltaTime);
 	}
 	else if (State == PlayerHitByEnemy)
 	{
@@ -160,7 +162,7 @@ void GameLogic::Draw3D()
 
 		if (State == InPlay || State == PlayerHitByEnemy)
 		{
-
+			TheGamePlay.Draw();
 		}
 	}
 }
@@ -187,11 +189,6 @@ void GameLogic::Draw2D()
 	{
 
 	}
-}
-
-void GameLogic::PlayerHit()
-{
-
 }
 
 void GameLogic::CheckEndOfWave()
